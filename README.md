@@ -40,12 +40,12 @@ we need to copy the files using sudo because we have an issue of permission with
 sudo cp /usr/local/share/data/metagenomics/data/*.fastq.gz .
 ```
 
-and we need to change permisison of write and read of the file with:
+and we need to change permission of write and read of the file with:
 ```
 sudo chmod 666 Palmetto-250k.fastq.gz 
 ```
 
-if permissions were set correctly, you could havev just make a link to the files using:
+if permissions were set correctly, you could make a link to the files with:
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
 
 
