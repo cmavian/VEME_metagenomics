@@ -46,9 +46,8 @@ sudo chmod 666 Palmetto-250k.fastq.gz
 ```
 
 if permissions were set correctly, you could havev just make a link to the files using:
-```
 ln -s /usr/local/share/data/metagenomics/data/*.fastq.gz .
-``` 
+
 
 
 
@@ -72,9 +71,9 @@ Kraken 2's output contains:
 
 
 #### Running Kraken
-```
+this is the command from the manual:
 kraken2 --use-names --db $KRAKEN_DB seqs.fa --report kreport
-```
+
 
 ### Running a for loop on all fastq files for the code:
 	
@@ -105,19 +104,16 @@ Fraction of Total Reads
 #### Running Bracken
 Bracken can be run using either the bracken shell script or the est_abundance python script. 
 
-```
 bracken -i input.kreport -d $KRAKEN_DB/ -r ${READ_LEN} -o output.bracken
-```
+
 
 ${READ_LEN} default =  100
 
 Our reads are 1x100bp so we do not need to speify. If you are using the pyhon script, you need to speficy the kmer distribution database corresponding to the Kraken database previously used and your read length.  
 
 python script alternative:
-
-```
 python est_abundance.py -i input.kreport -k $KRAKEN_DB/database$READ_LENmers.kmer_distrib -o output.bracken
-```
+
 
 ### Running a for loop on all fastq files for the code:
 	
@@ -135,10 +131,9 @@ for infile in *.kreport
 
 #### Report convertion 
 kreport2krona.py converts a Kraken-style report into Krona-compatible format (https://github.com/jenniferlu717/KrakenTools/blob/master/kreport2krona.py)
-
-```
+this is the command from the manual:
 python kreport2krona.py -r mysample_bracken.kreport -o mysample.krona
-```
+
 
 ### Running a for loop on all fastq files for the code:
 
@@ -151,11 +146,10 @@ for infile in *_bracken_species.kreport
 ```
 
 #### Krona chart
-Use ktImportText to create a chart based on a txt file that lists values and wedge hierarchies to add them to (https://github.com/marbl/Krona/wiki/Importing-text-and-XML-data)
+Use ktImportText to create a chart based on a txt file that lists values and wedge hierarchies to add them to (https://github.com/marbl/Krona/wiki/Importing-text-and-XML-data):
 
-```
 ktImportText mysample.krona -o mysample.html
-```
+
 
 ### Running a for loop on all fastq files for the code:
 
